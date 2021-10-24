@@ -29,25 +29,24 @@ class Project(models.Model):
 
 class Review(models.Model):
     Rating=[
-        (1,'1'),
-        (2,'2'),
-        (3,'3'),
-        (4,'4'),
-        (5,'5'),
-        (6,'6'),
-        (7,'7'),
-        (8,'8'),
-        (9,'9'),
-        (10,'10'),
+        ('1',1),
+        ('2',2),
+        ('3',3),
+        ('4',4),
+        ('5',5),
+        ('6',6),
+        ('7',7),
+        ('8',8),
+        ('9',9),
+        ('10',10),
     ]
     project=models.ForeignKey(Project, on_delete=models.CASCADE, related_name='proj_performance')
-    Design=models.CharField(max_length=100,choices=Rating, default='rate' ),
-    Usability=models.CharField(max_length=100,choices=Rating, default='rate' )
-    Content=models.CharField(max_length=100,choices=Rating, default='rate' )
-    average=models.FloatField(default=0, blank=True)
+    Design=models.CharField(max_length=100,choices=Rating, default='1' )
+    Usability=models.CharField(max_length=100,choices=Rating, default='1' )
+    Content=models.CharField(max_length=100,choices=Rating, default='1' )
+    average=models.FloatField(default=1, blank=True)
 
-    def __str__(self):
-        return self.average
+    
 
     
 
