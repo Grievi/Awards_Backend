@@ -17,5 +17,10 @@ class ProjectApi(viewsets.ModelViewSet):
     queryset=Project.objects.all()
     serializer_class=ProjectSerializer
 
-    
+class ReviewApi(viewsets.ModelViewSet):
+    """
+    API endpoint that allows users to be viewed or edited.
+    """
+    queryset=Review.objects.all()
+    serializer_class=ReviewSerializer
 
