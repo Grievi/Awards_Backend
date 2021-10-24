@@ -40,6 +40,7 @@ class Review(models.Model):
         (9,'9'),
         (10,'10'),
     ]
+    project=models.ForeignKey(Project, on_delete=models.CASCADE, related_name='proj_performance')
     Design=models.CharField(max_length=100,choices=Rating, default='rate' ),
     Usability=models.CharField(max_length=100,choices=Rating, default='rate' )
     Content=models.CharField(max_length=100,choices=Rating, default='rate' )

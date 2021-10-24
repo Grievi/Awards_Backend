@@ -1,17 +1,20 @@
 from rest_framework import serializers
 from backend.models import Profile, Project, Review
 
-class ProfileSerializer(serializers.ModelSerializer):
+class ReviewSerializer(serializers.ModelSerializer):
     class Meta:
-        model=Profile
+        model =Review
         fields='__all__'
 
 class ProjectSerializer(serializers.ModelSerializer):
+    proj_performance=ReviewSerializer(read_only=True, many=True)
     class Meta:
         model=Project
         fields='__all__'
 
-class ReviewSerializer(serializers.ModelSerializer):
+
+class ProfileSerializer(serializers.ModelSerializer):
+    projects=ProjectSerializer(read_only=True, many=True)
     class Meta:
-        model =Review
+        model=Profile
         fields='__all__'
