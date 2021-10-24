@@ -10,5 +10,12 @@ class ProfileApi(viewsets.ModelViewSet):
     queryset=Profile.objects.all()
     serializer_class=ProfileSerializer
 
+class ProjectApi(viewsets.ModelViewSet):
+    """
+    API endpoint that allows users to be viewed or edited.
+    """
+    queryset=Project.objects.all()
+    serializer_class=ProjectSerializer
 
+    
 
