@@ -1,3 +1,7 @@
 from django.contrib import admin
+from backend.models import Profile, Project,Review
 
-# Register your models here.
+admin.site.regiter(Profile)
+admin.site.regiter(Project)
+admin.site.regiter(Review)
+
