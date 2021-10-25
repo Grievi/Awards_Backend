@@ -6,6 +6,7 @@ from rest_framework import routers
 router=routers.DefaultRouter()
 router.register(r'Profile', views.ProfileApi)
 router.register(r'Project',views.ProjectApi)
+router.register(r'reviews', views.ReviewApi)
 
 urlpatterns = [
     path('admin/', admin.site.urls),

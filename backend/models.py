@@ -15,14 +15,14 @@ class Profile(models.Model):
         self.save()
 
 class Project(models.Model):
-    title= models.CharField(max_length=100)
+    project_name= models.CharField(max_length=100)
     description=models.CharField(max_length=500)
     project_img=models.ImageField(upload_to='images/')
     project_url=models.URLField(max_length=200)
     user= models.ForeignKey(User, on_delete=models.CASCADE, related_name='projects')
 
     def __str__(self):
-        return self.title
+        return self.project_name
 
     def save_project(self):
         self.save()
@@ -40,7 +40,7 @@ class Review(models.Model):
         ('9',9),
         ('10',10),
     ]
-    project=models.ForeignKey(Project, on_delete=models.CASCADE, related_name='proj_performance')
+    project_name=models.OneToOneField(Project, on_delete=models.CASCADE, related_name='proj_performance', primary_key=True)
     Design=models.CharField(max_length=100,choices=Rating, default='1' )
     Usability=models.CharField(max_length=100,choices=Rating, default='1' )
     Content=models.CharField(max_length=100,choices=Rating, default='1' )

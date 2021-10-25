@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from backend.models import Profile, Project,Review
 from backend.serializers import ProfileSerializer, ProjectSerializer, ReviewSerializer
-from rest_framework import viewsets,permissions
+from rest_framework import viewsets
 
 class ProfileApi(viewsets.ModelViewSet):
     """
