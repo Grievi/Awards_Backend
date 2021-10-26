@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from backend.models import Profile, Project,Review
 from backend.serializers import ProfileSerializer, ProjectSerializer, ReviewSerializer
-from rest_framework import viewsets
+from rest_framework import viewsets,permissions
 
 class ProfileApi(viewsets.ModelViewSet):
     """
@@ -9,7 +9,7 @@ class ProfileApi(viewsets.ModelViewSet):
     """
     queryset=Profile.objects.all()
     serializer_class=ProfileSerializer
-    
+    permission_classes=[permissions.IsAuthenticated]
 
 class ProjectApi(viewsets.ModelViewSet):
     """
@@ -17,7 +17,7 @@ class ProjectApi(viewsets.ModelViewSet):
     """
     queryset=Project.objects.all()
     serializer_class=ProjectSerializer
-    
+    permission_classes=[permissions.IsAuthenticated]
 
 class ReviewApi(viewsets.ModelViewSet):
     """
@@ -25,4 +25,4 @@ class ReviewApi(viewsets.ModelViewSet):
     """
     queryset=Review.objects.all()
     serializer_class=ReviewSerializer
-
+    permission_classes=[permissions.IsAuthenticated]
