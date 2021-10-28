@@ -1,10 +1,11 @@
 from django.db import models
 from django.contrib.auth.models import User
+# from cloudinary.models import CloudinaryField
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
-    profile_photo=models.ImageField(upload_to='images/')
-    name=models.CharField(max_length=155)
+    username=models.CharField(max_length=155)
+    profile_photo=models.ImageField(upload_to='image')
     bio=models.CharField(max_length=255)
     projects=models.CharField(max_length=255)
 
@@ -15,9 +16,9 @@ class Profile(models.Model):
         self.save()
 
 class Project(models.Model):
-    project_name= models.CharField(max_length=100)
+    project_name= models.CharField(max_length=100 )
     description=models.CharField(max_length=500)
-    project_img=models.ImageField(upload_to='images/')
+    project_img=models.ImageField(upload_to='image')
     project_url=models.URLField(max_length=200)
     user= models.ForeignKey(User, on_delete=models.CASCADE, related_name='projects')
 
@@ -40,7 +41,7 @@ class Review(models.Model):
         ('9',9),
         ('10',10),
     ]
-    project_name=models.ForeignKey(Project, on_delete=models.CASCADE, related_name='proj_performance', primary_key=True)
+    project_perfomance=models.ForeignKey(Project, on_delete=models.CASCADE, related_name='proj_performance')
     Design=models.CharField(max_length=100,choices=Rating, default='1' )
     Usability=models.CharField(max_length=100,choices=Rating, default='1' )
     Content=models.CharField(max_length=100,choices=Rating, default='1' )

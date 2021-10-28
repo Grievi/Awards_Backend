@@ -4,17 +4,37 @@ from backend.models import Profile, Project, Review
 class ReviewSerializer(serializers.ModelSerializer):
     class Meta:
         model =Review
-        fields='__all__'
+        fields=[
+            'project_perfomance',
+            'Design',
+            'Usability',
+            'Content',
+            'average',
+        ]
 
 class ProjectSerializer(serializers.ModelSerializer):
     proj_performance=ReviewSerializer(read_only=True, many=True)
     class Meta:
         model=Project
-        fields='__all__'
+        fields=[
+            'user',
+            'project_name',
+            'description',
+            'project_img',
+            'project_url',
+            'proj_performance'
+        ]
 
 
 class ProfileSerializer(serializers.ModelSerializer):
     projects=ProjectSerializer(read_only=True, many=True)
     class Meta:
         model=Profile
-        fields='__all__'
+        fields=[
+            'user',
+            'username',
+            'profile_photo',
+            'bio',
+            'projects',
+        ]
+

@@ -19,6 +19,8 @@ class ProjectApi(viewsets.ModelViewSet):
     serializer_class=ProjectSerializer
     permission_classes=[permissions.IsAuthenticated]
 
+    
+
 class ReviewApi(viewsets.ModelViewSet):
     """
     API endpoint that allows users to be viewed or edited.
