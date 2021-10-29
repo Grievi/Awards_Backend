@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.contrib.auth.models import User
 from backend.models import Profile, Project,Review
-from backend.serializers import ProfileSerializer, ProjectSerializer, ReviewSerializer
+from backend.serializers import ProfileSerializer, ProjectSerializer, ReviewSerializer,RegisterSerializer
 from rest_framework import viewsets,permissions
 
 class ProfileApi(viewsets.ModelViewSet):
@@ -20,7 +20,6 @@ class ProjectApi(viewsets.ModelViewSet):
     permission_classes=[permissions.AllowAny]
 
     
-
 class ReviewApi(viewsets.ModelViewSet):
     """
     API endpoint that allows users to be viewed or edited.
@@ -28,3 +27,9 @@ class ReviewApi(viewsets.ModelViewSet):
     queryset=Review.objects.all()
     serializer_class=ReviewSerializer
     permission_classes=[permissions.AllowAny]
+
+class RegisterView(viewsets.ModelViewSet):
+    queryset=User.objects.all()
+    serializer_class=RegisterSerializer
+    permission_classes=[permissions.AllowAny]
+
