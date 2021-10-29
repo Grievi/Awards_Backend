@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'backend',
     'rest_framework',
     'rest_framework.authtoken',
+    'rest_registration',
     'corsheaders',
     'cloudinary',
 
@@ -99,7 +100,13 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
+        
     )
+}
+REST_REGISTRATION = {
+    'REGISTER_VERIFICATION_ENABLED': False,
+    'REGISTER_EMAIL_VERIFICATION_ENABLED': False,
+    'RESET_PASSWORD_VERIFICATION_ENABLED': False,
 }
 
 # Password validation
