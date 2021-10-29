@@ -5,6 +5,7 @@ from django.conf import settings
 from backend import views
 from rest_framework import routers
 from rest_framework.authtoken import views as token_views
+from backend.views import RegisterView
 
 router=routers.DefaultRouter()
 router.register(r'Profile', views.ProfileApi)
@@ -15,7 +16,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
     path('api/', include('rest_framework.urls', namespace='rest_framework')),
-    path('api-login/', token_views.obtain_auth_token)
+    path('api-login/', token_views.obtain_auth_token),
+    path('register', RegisterView.as_view(), name='register')
     
 ]
 
