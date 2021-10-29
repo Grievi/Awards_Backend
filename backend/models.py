@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 # from cloudinary.models import CloudinaryField
 
+
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
     username=models.CharField(max_length=155)
@@ -30,22 +31,29 @@ class Project(models.Model):
 
 class Review(models.Model):
     Rating=[
-        ('1',1),
-        ('2',2),
-        ('3',3),
-        ('4',4),
-        ('5',5),
-        ('6',6),
-        ('7',7),
-        ('8',8),
-        ('9',9),
-        ('10',10),
+        (1,'1'),
+        (2,'2'),
+        (3,'3'),
+        (4,'4'),
+        (5,'5'),
+        (6,'6'),
+        (7,'7'),
+        (8,'8'),
+        (9,'9'),
+        (10,'10'),
     ]
     project_perfomance=models.ForeignKey(Project, on_delete=models.CASCADE, related_name='proj_performance')
-    Design=models.CharField(max_length=100,choices=Rating, default='1' )
-    Usability=models.CharField(max_length=100,choices=Rating, default='1' )
-    Content=models.CharField(max_length=100,choices=Rating, default='1' )
-    average=models.FloatField(default=1, blank=True)
+    Design=models.IntegerField(choices=Rating, default='1' )
+    Usability=models.IntegerField(choices=Rating, default='1' )
+    Content=models.IntegerField(choices=Rating, default='1' )
+    
+    def mean(self):
+            sum=0
+            sum=(self.Design + self.Usability   + self.Content)
+            avg= (sum/3)
+            return avg
+            
+    average=property(mean)
 
     
 

@@ -9,7 +9,7 @@ class ProfileApi(viewsets.ModelViewSet):
     """
     queryset=Profile.objects.all()
     serializer_class=ProfileSerializer
-    permission_classes=[permissions.IsAuthenticated]
+    permission_classes=[permissions.AllowAny]
 
 class ProjectApi(viewsets.ModelViewSet):
     """
@@ -17,7 +17,7 @@ class ProjectApi(viewsets.ModelViewSet):
     """
     queryset=Project.objects.all()
     serializer_class=ProjectSerializer
-    permission_classes=[permissions.IsAuthenticated]
+    permission_classes=[permissions.AllowAny]
 
     
 
@@ -27,4 +27,4 @@ class ReviewApi(viewsets.ModelViewSet):
     """
     queryset=Review.objects.all()
     serializer_class=ReviewSerializer
-    permission_classes=[permissions.IsAuthenticated]
+    permission_classes=[permissions.AllowAny]
