@@ -1,9 +1,6 @@
 from rest_framework import serializers
 from backend.models import Profile, Project, Review
 
-
-
-
 class ReviewSerializer(serializers.ModelSerializer):
     class Meta:
         model =Review

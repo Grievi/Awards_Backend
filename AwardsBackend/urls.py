@@ -19,6 +19,7 @@ urlpatterns = [
     path('api-login/', token_views.obtain_auth_token), 
     path('accounts/', include('rest_registration.api.urls')),
     
+    
 ]
 
 if settings.DEBUG:

@@ -3,7 +3,6 @@ from backend.serializers import ProfileSerializer, ProjectSerializer, ReviewSeri
 from rest_framework import viewsets,permissions
 
 
-
 class ProfileApi(viewsets.ModelViewSet):
     """
     API endpoint that allows users to be viewed or edited.
