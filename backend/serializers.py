@@ -24,7 +24,7 @@ class ProjectSerializer(serializers.ModelSerializer):
             'project_url',
             'proj_performance'
         ]
-
+        read_only_fields=['user']
 
 class ProfileSerializer(serializers.ModelSerializer):
     projects=ProjectSerializer(read_only=True, many=True)
@@ -37,4 +37,5 @@ class ProfileSerializer(serializers.ModelSerializer):
             'bio',
             'projects',
         ]
+        read_only_fields=['user']
 
