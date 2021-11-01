@@ -4,7 +4,7 @@
 
 ## Description
 
-Projec Awards is an application that alows users to signup and login then post a project that will be reviewed and rated by other users of the application 
+Project Awards is an application that alows users to signup and login then post a project that will be reviewed and rated by other users of the application 
 
 
 ## Setup Requirements
@@ -98,9 +98,9 @@ The following languages have been used on this project:
 
 ## Setup/Installation Requirements
 
-- Live link to the Projects backend Api <a target="_blank" href="https://awards-backend.herokuapp.com/">Awards_Backend Api</a>
+- Live link to the Project's backend Api <a target="_blank" href="https://awards-backend.herokuapp.com/">Awards_Backend Api</a>
 
-- Live link to view the project <a target="_blank" href="https://tender-engelbart-f985f4.netlify.app">Awards</a>
+- Live link to view The Project <a target="_blank" href="https://tender-engelbart-f985f4.netlify.app">Awards</a>
 
 ## Some Screenshots
 
